@@ -61,7 +61,7 @@ const CashflowStatement = (props: Props) => {
       setCashFlowData(result!.data);
     };
     getRatios();
-  }, []);
+  });
   return cashFlowData ? (
     <Table config={config} data={cashFlowData}></Table>
   ) : (
