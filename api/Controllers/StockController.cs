@@ -30,7 +30,7 @@ namespace api.Controllers
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+              return BadRequest(ModelState);
 
             var stocks = await _stockRepo.GetAllAsync(query);
 
@@ -42,17 +42,17 @@ namespace api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+          if (!ModelState.IsValid)
+              return BadRequest(ModelState);
 
-            var stock = await _stockRepo.GetByIdAsync(id);
+          var stock = await _stockRepo.GetByIdAsync(id);
 
-            if (stock == null)
-            {
-                return NotFound();
-            }
+          if (stock == null)
+          {
+              return NotFound();
+          }
 
-            return Ok(stock.ToStockDto());
+          return Ok(stock.ToStockDto());
         }
 
         [HttpPost]

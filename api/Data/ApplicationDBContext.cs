@@ -37,7 +37,6 @@ namespace api.Data
                 .WithMany(u => u.Portfolios)
                 .HasForeignKey(p => p.StockId);
 
-
             List<IdentityRole> roles = new List<IdentityRole>
             {
                 new IdentityRole
