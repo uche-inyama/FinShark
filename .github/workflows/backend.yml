@@ -40,11 +40,11 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ${{ secrets.AZURE_CONTAINER_REGISTRY }}/dotnet-api:${{ github.sha }} .
+          docker build -t ${{ secrets.AZURE_CONTAINER_REGISTRY }}/dotnet-api:${{ github.sha }} -f api/Dockefile .
         
       - name: Push Docker image to ACR
         run: |
-          docker pusj ${{ secrets.AZURE_CONTAINER_REGISTRY }}/dotnet-api:${{ github.sha }}
+          docker push ${{ secrets.AZURE_CONTAINER_REGISTRY }}/dotnet-api:${{ github.sha }}
 
   deploy:
     runs-on: ubuntu-latest
